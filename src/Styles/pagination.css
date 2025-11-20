@@ -1,0 +1,90 @@
+.pagination-page{
+    padding: 1rem 1% 2rem;
+}
+.pagination-wrapper {
+  display: flex;
+  background-color: #fff;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-size {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-size: 14px;
+}
+
+.page-size button {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #999;
+  background: white;
+  cursor: pointer;
+}
+
+.page-size button.active {
+  background: black;
+  color: white;
+}
+
+/* Main pagination bar */
+.pagination {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.nav-btn,
+.page-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-btn.active {
+  background: #c8a165;
+  color: white;
+  border-color: #fff;
+}
+
+.page-btn:hover {
+  background: #f2f2f2;
+}
+
+.dots {
+  padding: 0 6px;
+  font-size: 18px;
+}
+
+
+@media (max-width: 600px) {
+  .pagination {
+    gap: 0.2rem;
+  }
+
+  .page-btn {
+    padding: 4px 8px;
+  }
+
+  .page-size {
+    gap: 0.4rem;
+  }
+}

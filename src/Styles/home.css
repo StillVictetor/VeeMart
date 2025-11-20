@@ -1,0 +1,49 @@
+.home{
+    padding: 7rem 0 2rem;
+    background-color: #f2f2f2;
+}
+
+.home-banner{
+    text-align: center;
+    background-color: #666666;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.home-banner img{
+    object-position: center;
+    opacity: 0.8;
+    width: 450px;
+    margin-top: -3rem;
+}
+
+.home-banner h1{
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    /* entrance animation: translateY (slide up) + letter-spacing (space out) + fade in */
+    animation: bannerIn 900ms cubic-bezier(.2,.9,.3,1) both;
+    will-change: transform, letter-spacing, opacity;
+}
+
+@keyframes bannerIn {
+    0% {
+        transform: translate(-50%, -60%);
+        letter-spacing: 0.2rem;
+        opacity: 0;
+    }
+    60% {
+        transform: translate(-50%, -48%);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%);
+        letter-spacing: 2rem;
+        opacity: 1;
+    }
+}

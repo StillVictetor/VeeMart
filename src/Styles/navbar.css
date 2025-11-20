@@ -1,0 +1,157 @@
+:root{
+  --bg: #f9f6f1;
+  --panel: #fff;
+  --text: #1e1e1e;
+  --overlay: rgba(0,0,0,0.36);
+  --accent: #c8a165;
+}
+
+.navbar{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:.9rem 4%;
+  background: var(--bg);
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.navbar-left, .navbar-center, .navbar-right{
+  display:flex;
+  align-items:center;
+}
+
+.navbar-center{
+  flex:1;
+  justify-content:center;
+}
+
+.icon-btn{
+  background:transparent;
+  margin-right: 12rem;
+  margin-top: 2rem;
+  border: 0;
+}
+
+.icon-btn1{
+  background:transparent;
+  border:0;
+  padding:8px;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+}
+
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background: var(--overlay);
+  opacity:0;
+  visibility:hidden;
+  transition: opacity 0.5s ease, visibility 0.3s;
+  z-index:40;
+}
+
+.overlay.show{
+  opacity:1;
+  visibility:visible;
+}
+
+.side-menu{
+  position:fixed;
+  top:0;
+  left:0;
+  width:240px;
+  max-width:80%;
+  height:100vh;
+  background: var(--bg);
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(.2,.9,.2,1);
+  z-index:200;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.side-menu.open{
+  transform: translateX(0);
+}
+
+
+.side-header{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.menu-items{
+  list-style:none;
+  margin:6rem 0 0 0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+}
+
+.button-one{
+  position: relative;
+  display:block;
+  width:100%;
+  padding:0 30px;
+  height:40px;
+  line-height:50px;
+  color:#000;
+  text-decoration:none;
+  text-transform:uppercase;
+  overflow:hidden;
+  cursor:pointer;
+  transition: color 0.5s ease;
+}
+
+.button-one::before{
+  content: attr(data-text);
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background: var(--accent);
+  color:#fff;
+  text-align:center;
+  z-index:1;
+  visibility:hidden;
+  transition:left 0.35s ease, visibility 0.35s ease;
+}
+
+.button-one:hover::before,
+.button-one:focus::before,
+.button-one:active::before{
+  left:0;
+  visibility:visible;
+}
+
+.button-one::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+}
+
+.button-one.style-2{
+  height:45px;
+  padding:0 90px;
+}
+
+
+@media(max-width:520px){
+  .side-menu{ width:78%; }
+  .nav-logo{ height:30px; }
+}
