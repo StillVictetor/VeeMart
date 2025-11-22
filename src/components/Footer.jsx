@@ -10,11 +10,7 @@ export default function Footer() {
   return (
     <footer>
       {/* MAIN FOOTER */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: false }}
+      <div
         className="footer-area"
       >
         <motion.div
@@ -105,16 +101,11 @@ export default function Footer() {
             </motion.ul>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* COPYRIGHT */}
       <div className="copyright-area">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: false }}
-          className="copyright-container"
+        <div className="copyright-container"
         >
           <p className="copyright">
             &copy; CodeCarnival 2022. All Rights Reserved.
@@ -140,7 +131,7 @@ export default function Footer() {
               <img src={pay4} alt="payment" />
             </a>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   )
