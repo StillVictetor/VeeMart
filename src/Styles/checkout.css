@@ -10,20 +10,55 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+  gap: 10px;
 }
 
 .tabs button {
-  width: 25%;
-  padding: 15px;
-  background: #eee;
+  width: 23%;
+  padding: 1.3rem 1rem 1.3rem;
+  background: #fff;
   border: none;
-  font-size: 15px;
+  font-size: .70rem;
+  font-weight: 900;
   cursor: pointer;
+  color: #666666;
 }
 
 .tabs .active {
   background: #c19a5b;
   color: #fff;
+}
+
+.list-container {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 40px;
+  padding: 2rem;
+  background: #fff;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-controls button {
+  padding: 5px 10px;
+  background: #c19a5b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  align-items: center;
+  text-align: center;
 }
 
 .list-container table {
@@ -62,8 +97,11 @@
 }
 
 .form-container {
-  width: 60%;
+  width: 90%;
   margin: auto;
+  background-color: #fff;
+  padding: 2rem;
+  text-align: center;
 }
 
 .form-container form {
@@ -74,8 +112,10 @@
 
 .form-container input,
 select {
-  padding: 12px;
-  border: 1px solid #ccc;
+  padding: .90rem 1rem .90rem;
+  border: none;
+  background-color: #f2f2f2;
+  outline: none;
 }
 
 .checkout-btn {
@@ -95,4 +135,91 @@ select {
 td {
   padding: 15px;
   border-bottom: 1px solid #ccc;
+}
+
+.summary-actions{
+  display: flex;
+  gap: 20px;
+}
+
+.form-container button{
+  width: 150px;
+  margin: 1rem auto;
+}
+
+.form-container .button-two,
+.list-container .button-two {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem;
+  border: none;
+  background: #f2f2f2;
+  font-weight: 600;
+  color: #000;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 1px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover sliding overlay */
+.form-container .button-two::before,
+.list-container .button-two::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #c8a165;
+  color: #fff;
+  text-align: center;
+  visibility: hidden;
+  z-index: 1;
+  transition:
+    left 0.5s ease-in-out,
+    visibility 0.3s ease;
+}
+
+/* Border effect */
+.form-container .button-two::after,
+.list-container .button-two::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Hover state */
+.form-container .button-two:hover,
+.form-container .button-two:focus,
+.form-container .button-two:active,
+.list-container .button-two:hover,
+.list-container .button-two:focus,
+.list-container .button-two:active {
+  color: #fff;
+}
+
+.form-container .button-two:hover::before,
+.form-container .button-two:focus::before,
+.form-container .button-two:active::before,
+.list-container .button-two:hover::before,
+.list-container .button-two:focus::before,
+.list-container .button-two:active::before {
+  left: 0;
+  visibility: visible;
+}
+
+/* Extra styles for style-2 (adjusted) */
+.form-container .button-two.style-2,
+.list-container .button-two.style-2 {
+  height: 45px;
+  line-height: 45px;
+  padding: 0 30px;
 }

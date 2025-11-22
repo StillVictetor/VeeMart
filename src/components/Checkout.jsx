@@ -4,14 +4,16 @@ import '../Styles/home.css'
 import banner from '../assets/bg.png'
 import img1 from '../assets/shoe1.png'
 import { useCart } from '../context/CartContext'
+import PaymentInstructions from './PaymentInstructions'
 
-const CheckoutPage = () => {
+export default function CheckoutPage({ onClose, onAddToCart }) {
+  const cart = useCart()
+
   const [activeTab, setActiveTab] = useState('wishlist')
 
   const {
     wishlist,
     removeFromWishlist,
-    addItem,
     items: cartItems,
     totalPrice,
     updateQty,
@@ -19,7 +21,8 @@ const CheckoutPage = () => {
     clearCart,
   } = useCart()
 
-  const transactionHistory = [
+  // transaction history (stateful so we can add new transactions)
+  const [transactionHistory, setTransactionHistory] = useState([
     {
       id: 1,
       date: '2025-01-05',
@@ -27,14 +30,10 @@ const CheckoutPage = () => {
       total: '$150',
       status: 'Success',
     },
-    {
-      id: 2,
-      date: '2025-01-12',
-      items: 2,
-      total: '$89',
-      status: 'Success',
-    },
-  ]
+  ])
+
+  // payment flow state
+  const [paymentDetails, setPaymentDetails] = useState(null)
 
   // PAGE RENDER FUNCTIONS
   const renderWishlist = () => (
@@ -66,13 +65,17 @@ const CheckoutPage = () => {
               <td>{item.stock ?? 'IN STOCK'}</td>
               <td>
                 <button
-                  className="cart-btn"
+                  className="button-two style-2"
+                  data-text="Add to Cart"
                   onClick={() => {
-                    addItem(item, 1)
-                    removeFromWishlist(item.id)
+                    // add the wishlist item to cart
+                    if (cart && cart.addItem) cart.addItem(item, 1)
+                    else onAddToCart && onAddToCart(item)
+                    // close if onClose provided
+                    if (onClose) onClose()
                   }}
                 >
-                  🛒
+                  Add to Cart
                 </button>
               </td>
               <td>
@@ -137,33 +140,58 @@ const CheckoutPage = () => {
           Total: <strong>${totalPrice.toFixed(2)}</strong>
         </div>
         <div className="summary-actions">
-          <button className="checkout-btn" onClick={() => clearCart()}>
+          <button
+            className="button-two style-2"
+            data-text="Clear Cart"
+            onClick={() => clearCart()}
+          >
             Clear Cart
+          </button>
+          <button
+            className="button-two style-2"
+            data-text="Checkout"
+            onClick={() => setActiveTab('checkout')}
+          >
+            Checkout
           </button>
         </div>
       </div>
     </div>
   )
 
+  // Payment instructions moved to PaymentInstructions component
+
   const renderCheckoutForm = () => (
     <div className="form-container">
       <h2>Checkout Form</h2>
 
-      <form>
-        <label>Full Name</label>
-        <input type="text" placeholder="Enter your name" />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          const form = e.target
+          const formData = new FormData(form)
+          const details = {
+            fullName: formData.get('fullName') || '',
+            email: formData.get('email') || '',
+            address: formData.get('address') || '',
+            city: formData.get('city') || '',
+            method: formData.get('method') || 'Bank Transfer',
+            amount: totalPrice ?? 0,
+          }
+          setPaymentDetails(details)
+          setActiveTab('payment')
+        }}
+      >
+        <input name="fullName" type="text" placeholder="Enter your name" />
 
-        <label>Email</label>
-        <input type="email" placeholder="Enter email" />
+        <input name="email" type="email" placeholder="Enter email" />
 
-        <label>Address</label>
-        <input type="text" placeholder="Enter address" />
+        <input name="address" type="text" placeholder="Enter address" />
 
-        <label>City</label>
-        <input type="text" placeholder="Enter city" />
+        <input name="city" type="text" placeholder="Enter city" />
 
-        <label>Payment Method</label>
-        <select>
+        <select name="method">
+          <option>Select Payment Method</option>  
           <option>Credit Card</option>
           <option>Bank Transfer</option>
           <option>Cash on Delivery</option>
@@ -255,10 +283,20 @@ const CheckoutPage = () => {
         {activeTab === 'wishlist' && renderWishlist()}
         {activeTab === 'cart' && renderCart()}
         {activeTab === 'checkout' && renderCheckoutForm()}
+        {activeTab === 'payment' && (
+          <PaymentInstructions
+            amount={totalPrice}
+            payer={paymentDetails?.fullName}
+            totalItems={cart.totalItems}
+            clearCart={clearCart}
+            onTransactionComplete={(tx) => {
+              setTransactionHistory((t) => [tx, ...t])
+              setActiveTab('complete')
+            }}
+          />
+        )}
         {activeTab === 'complete' && renderOrderComplete()}
       </div>
     </div>
   )
 }
-
-export default CheckoutPage

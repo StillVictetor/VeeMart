@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Styles/CartDrawer.css'
+import { motion } from 'framer-motion'
 import { useCart } from '../context/CartContext'
 import { X, TrashIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -20,7 +21,7 @@ export default function CartDrawer({ open, onClose }) {
         aria-label="Shopping cart"
       >
         <div className="cart-header">
-          <h3>Shopping Cart ({totalItems})</h3>
+          <h3>Shopping Cart {totalItems}</h3>
         </div>
 
         <div className="cart-body">
@@ -29,7 +30,14 @@ export default function CartDrawer({ open, onClose }) {
           ) : (
             <ul className="cart-list">
               {items.map((i) => (
-                <li key={i.id} className="cart-item">
+                <motion.li
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: false }}
+                  key={i.id}
+                  className="cart-item"
+                >
                   <img
                     src={i.product.src || i.product.img}
                     alt={i.product.name}
@@ -60,7 +68,7 @@ export default function CartDrawer({ open, onClose }) {
                       </button>
                     </div>
                   </div>
-                </li>
+                </motion.li>
               ))}
             </ul>
           )}
