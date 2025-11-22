@@ -1,0 +1,95 @@
+.checkout-page {
+  margin: auto;
+  padding-top: 30px;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 2rem 8% 2rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.tabs button {
+  width: 25%;
+  padding: 15px;
+  background: #eee;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.tabs .active {
+  background: #c19a5b;
+  color: #fff;
+}
+
+.list-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list-container th {
+  text-align: left;
+  padding: 15px;
+  background: #f3f3f3;
+}
+
+.list-container td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.product-info img {
+  width: 100px;
+  border-radius: 5px;
+}
+
+.cart-btn, .remove-btn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+}
+
+.form-container {
+  width: 60%;
+  margin: auto;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container input, select {
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+.checkout-btn {
+  background: #c19a5b;
+  padding: 15px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.history-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-container th, td {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}

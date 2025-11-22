@@ -1,10 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/featuredProduct.css'
 import wear from '../assets/wears1.jfif'
 import { Star, BookmarkIcon, SearchIcon } from 'lucide-react';
+import ProductQuickView from './ProductQuickView'
+import { useCart } from '../context/CartContext'
 
 const FeaturedProduct = () => {
+  const [quick, setQuick] = useState(null)
 
     const FEATUREDPRODUCTS = [
         {
@@ -98,7 +101,7 @@ const FeaturedProduct = () => {
         }, 
         
 {
-            id: 4,
+            id: 7,
             name: 'Wear 4',
             oldPrice: 2000,
             newPrice: 49000,
@@ -127,6 +130,12 @@ const FeaturedProduct = () => {
       behavior: 'smooth',
     });
   };    
+  const handleAddToCart = (product) => {
+    // placeholder: wire this to your cart logic
+    console.log('Add to cart', product)
+  }
+  const { toggleWishlist, isWishlisted } = useCart()
+
   return (
     <div>
         <section className="featured-container" id="flash">
@@ -157,11 +166,22 @@ const FeaturedProduct = () => {
                         <Star size={16} fill="none" stroke="#c8a165" />
                     </div>
 
-                    <ul>
-                        <li><BookmarkIcon size={17} color='#000' style={{cursor: 'pointer'}}/></li>
-                        <li><SearchIcon size={17} color='#000' style={{cursor: 'pointer'}}/></li>
-                        <button className='button-two style-2' data-text="View Details">View Details</button>
-                    </ul>
+          <ul>
+            <li>
+              <button
+                className={`bookmark-btn ${isWishlisted(item.id) ? 'active' : ''}`}
+                onClick={() => toggleWishlist(item)}
+                aria-pressed={isWishlisted(item.id)}
+                title={isWishlisted(item.id) ? 'Remove from wishlist' : 'Add to wishlist'}
+              >
+                <BookmarkIcon size={17} color={isWishlisted(item.id) ? '#fff' : '#000'} />
+              </button>
+            </li>
+            <li>
+              <SearchIcon size={17} color='#000' style={{cursor: 'pointer'}} onClick={() => setQuick(item)} />
+            </li>
+            <button className='button-two style-2' data-text="View Details">View Details</button>
+          </ul>
                 </div>
           ))}
         </div>
@@ -175,6 +195,9 @@ const FeaturedProduct = () => {
 
           </div>  
     </section>
+    {quick && (
+      <ProductQuickView product={quick} onClose={() => setQuick(null)} onAddToCart={handleAddToCart} />
+    )}
     </div>
   )
 }

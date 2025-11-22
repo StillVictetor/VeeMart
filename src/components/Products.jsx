@@ -5,9 +5,18 @@ import wears from '../assets/wears1.jfif'
 import wears2 from '../assets/PoloShirt.jfif'
 import wears3 from '../assets/PoloShirt.jfif'
 import {SearchIcon, BookmarkIcon, Star} from 'lucide-react'
+import { useCart } from '../context/CartContext'
+import ProductQuickView from './ProductQuickView'
 import Pagination from './Pagination'   
 
 const Products = () => {
+  const [quick, setQuick] = useState(null)
+
+  const handleAddToCart = (product) => {
+    // placeholder - wire this to real cart logic
+    console.log('Add to cart', product)
+  }
+  const { toggleWishlist, isWishlisted } = useCart()
 
     const PRODUCTS =[
     {
@@ -331,7 +340,7 @@ const Products = () => {
         <div className="products-container">
 
             {/* SHOW ONLY CURRENT PAGE ITEMS */}
-            {currentItems.map((product) => (
+      {currentItems.map((product) => (
                 <div key={product.id} className="product-card">
                     <div>
                         <img src={product.src} alt={product.name} className="product-image" />
@@ -348,11 +357,17 @@ const Products = () => {
                         <Star size={16} fill="none" stroke="#c8a165" />
                     </div>
 
-                    <ul>
-                        <li><BookmarkIcon size={17} color='#000' style={{cursor: 'pointer'}}/></li>
-                        <li><SearchIcon size={17} color='#000' style={{cursor: 'pointer'}}/></li>
-                        <button className='button-two style-2' data-text="View Details">View Details</button>
-                    </ul>
+          <ul>
+            <li>
+              <button className={`bookmark-btn ${isWishlisted(product.id) ? 'active' : ''}`} onClick={() => toggleWishlist(product)} aria-pressed={isWishlisted(product.id)}>
+                <BookmarkIcon size={17} color={isWishlisted(product.id) ? '#fff' : '#000'} />
+              </button>
+            </li>
+            <li>
+              <SearchIcon size={17} color='#000' style={{cursor: 'pointer'}} onClick={() => setQuick(product)} />
+            </li>
+            <button className='button-two style-2' data-text="View Details">View Details</button>
+          </ul>
                 </div>
             ))}
         </div>
@@ -367,6 +382,10 @@ const Products = () => {
             }
           }}
         />
+
+      {quick && (
+        <ProductQuickView product={quick} onClose={() => setQuick(null)} onAddToCart={handleAddToCart} />
+      )}
 
     </div>
   )

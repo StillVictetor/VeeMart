@@ -48,6 +48,20 @@
   border-radius:8px;
 }
 
+.cart-badge{
+  display:inline-block;
+  min-width:18px;
+  height:18px;
+  padding:0 5px;
+  border-radius:18px;
+  background:#c8a165;
+  color:#fff;
+  font-size:12px;
+  line-height:18px;
+  text-align:center;
+  margin-left:6px;
+}
+
 
 .overlay{
   position:fixed;

@@ -195,3 +195,15 @@
 .badge.sale {
   background: #d9534f;
 }
+
+.bookmark-btn{
+  background: transparent;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.bookmark-btn.active{background:#000;color:#fff}

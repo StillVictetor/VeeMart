@@ -47,3 +47,155 @@
         opacity: 1;
     }
 }
+
+.about{
+    background-color: #f2f2f2;
+    padding: 2rem 5% 2rem;
+    
+}
+
+.about .about-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 1rem 2% 1rem;
+}
+
+.about .about-pic{
+    width: 600px;
+    border-top-right-radius: 40%;
+}
+
+.about-grid div{
+    position: absolute;
+    left: 40%;
+    top: 105%;
+    width:700px ;
+    background-color: #f2f2f2;
+    padding: 3rem 3% 3rem;
+}
+
+.about-grid div h3{
+    color: #666666;
+    margin-bottom: 3rem;
+}
+
+.about-grid div p{
+    line-height: 1.80rem;
+}
+
+.team{
+    text-align: center;
+    padding: 3rem 0 0;
+}
+
+.team h2{
+    font-size: 2rem;
+    font-family: 'poppins' sans-serif;
+}
+
+.team-grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    text-align: center;
+    padding: 3rem 0 2rem;
+    gap: 2rem;
+    margin:  0 auto;
+}
+
+.team-card{
+    background-color: #fff;
+    height: 350px;
+    padding: 1rem 3% 0;
+}
+
+.team-card .profile{
+    height: 9rem;
+    width: 9rem;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+
+.team-card h1{
+    font-size: 1rem;
+    font-weight: 900;
+    color: #666666;
+    margin-bottom: .5rem;
+}
+
+.team-card h3{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666666;
+    margin-bottom: 2rem;
+}
+
+.team-card p{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666666;
+    text-align: center;
+}
+
+.contact{
+    padding: 2rem 5% 2rem;
+    background-color: #f2f2f2;
+}
+
+.contact-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #fff;
+    padding: 2rem 3% 2rem;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.contact-details{
+    width: 400px;
+}
+
+.contact-details h2{
+    color: #666666;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.contact-details p{
+    margin-bottom: 1.5rem;
+}
+
+.send-message {
+    display: grid;
+    gap: .7rem;
+}
+
+.send-message input{
+    padding: .7rem 2% .7rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #f2f2f2;
+}
+
+.send-message textarea{
+    outline: none;
+    border: none;
+    padding: .7rem 2% .7rem;
+    background-color: #f2f2f2;
+    width: 100%;
+    resize: none;
+}
+
+.send-message .btn{
+    width: 45%;
+    margin: 0 auto;
+    background-color: #c8a165;
+}
+
+
+.contact-details .icons{
+    font-size: 1rem;
+}

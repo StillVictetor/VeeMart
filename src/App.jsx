@@ -11,6 +11,9 @@ import ProductTabs from './components/ProductTaps.jsx';
 import HomeCarousel from './components/HomeCarousel.jsx'
 import MainP from './components/mainP.jsx';
 import FeaturedProduct from './components/FeaturedProduct.jsx';
+import AboutHome from './components/AboutHome.jsx';
+import ContactHome from './components/ContactHome.jsx'
+import Checkout from './components/Checkout.jsx'
 
 
 function App() {
@@ -47,6 +50,22 @@ function App() {
           <Categories/>
           <Products/>
           </>
+        }/>
+
+        <Route path='/about' element={
+          <>
+          <AboutHome/>
+          </>
+        }/>
+
+        <Route path='/contact' element={
+          <>
+          <ContactHome/>
+          </>
+        }/>
+
+        <Route path='/checkout' element={
+          <Checkout/>
         }/>
         
       </Routes>

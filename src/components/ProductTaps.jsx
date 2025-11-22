@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../Styles/productTabs.css";
 import { SearchIcon, BookmarkIcon, Star } from "lucide-react";
+import { useCart } from '../context/CartContext'
+import ProductQuickView from './ProductQuickView'
 
 import img1 from "../assets/Abercrombie & Fitch _ Authentic American clothing since 1892 (1).jfif";
 import img2 from "../assets/Available in colors and size’s  Price_250gh.jfif";
@@ -35,6 +37,13 @@ const data = {
 
 export default function ProductTabs() {
   const [activeTab, setActiveTab] = useState("new");
+  const [quick, setQuick] = useState(null)
+
+  const { toggleWishlist, isWishlisted } = useCart()
+
+  const handleAddToCart = (product) => {
+    console.log('Add to cart', product)
+  }
 
   const tabs = [
     { key: "new", label: "New Arrivals" },
@@ -82,10 +91,12 @@ export default function ProductTabs() {
 
             <ul>
               <li>
-                <BookmarkIcon size={17} color="#000" style={{ cursor: "pointer" }} />
+                <button className={`bookmark-btn ${isWishlisted(prod.id) ? 'active' : ''}`} onClick={() => toggleWishlist(prod)} aria-pressed={isWishlisted(prod.id)}>
+                  <BookmarkIcon size={17} color={isWishlisted(prod.id) ? '#fff' : '#000'} />
+                </button>
               </li>
               <li>
-                <SearchIcon size={17} color="#000" style={{ cursor: "pointer" }} />
+                <SearchIcon size={17} color="#000" style={{ cursor: "pointer" }} onClick={() => setQuick(prod)} />
               </li>
               <button className="button-two style-2" data-text="View Details">
                 View Details
@@ -94,6 +105,9 @@ export default function ProductTabs() {
           </div>
         ))}
       </div>
+      {quick && (
+        <ProductQuickView product={quick} onClose={() => setQuick(null)} onAddToCart={handleAddToCart} />
+      )}
     </div>
   );
 }

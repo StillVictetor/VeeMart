@@ -192,6 +192,18 @@
   line-height: 45px;
   padding: 0 30px;
 }
+
+.bookmark-btn{
+  background: transparent;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.bookmark-btn.active{background:#000;color:#fff}
 /* Responsive */
 @media (max-width: 600px) {
   .featured-carousel-wrapper {
