@@ -1,31 +1,40 @@
-import React, { useState } from "react";
-import "../Styles/checkout.css";
+import React, { useState } from 'react'
+import '../Styles/checkout.css'
 import '../Styles/home.css'
-import banner from "../assets/bg.png"
-import img1 from "../assets/shoe1.png";
+import banner from '../assets/bg.png'
+import img1 from '../assets/shoe1.png'
 import { useCart } from '../context/CartContext'
 
 const CheckoutPage = () => {
-  const [activeTab, setActiveTab] = useState("wishlist");
+  const [activeTab, setActiveTab] = useState('wishlist')
 
-  const { wishlist, removeFromWishlist, addItem, items: cartItems, totalPrice, updateQty, removeItem, clearCart } = useCart()
+  const {
+    wishlist,
+    removeFromWishlist,
+    addItem,
+    items: cartItems,
+    totalPrice,
+    updateQty,
+    removeItem,
+    clearCart,
+  } = useCart()
 
   const transactionHistory = [
     {
       id: 1,
-      date: "2025-01-05",
+      date: '2025-01-05',
       items: 3,
-      total: "$150",
-      status: "Success",
+      total: '$150',
+      status: 'Success',
     },
     {
       id: 2,
-      date: "2025-01-12",
+      date: '2025-01-12',
       items: 2,
-      total: "$89",
-      status: "Success",
+      total: '$89',
+      status: 'Success',
     },
-  ];
+  ]
 
   // PAGE RENDER FUNCTIONS
   const renderWishlist = () => (
@@ -53,22 +62,33 @@ const CheckoutPage = () => {
                 </div>
               </td>
 
-              <td>${(item.newPrice ?? item.price ?? '')}</td>
+              <td>${item.newPrice ?? item.price ?? ''}</td>
               <td>{item.stock ?? 'IN STOCK'}</td>
               <td>
-                <button className="cart-btn" onClick={() => { addItem(item, 1); removeFromWishlist(item.id); }}>
+                <button
+                  className="cart-btn"
+                  onClick={() => {
+                    addItem(item, 1)
+                    removeFromWishlist(item.id)
+                  }}
+                >
                   🛒
                 </button>
               </td>
               <td>
-                <button className="remove-btn" onClick={() => removeFromWishlist(item.id)}>✖</button>
+                <button
+                  className="remove-btn"
+                  onClick={() => removeFromWishlist(item.id)}
+                >
+                  ✖
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  );
+  )
 
   const renderCart = () => (
     <div className="list-container">
@@ -93,7 +113,7 @@ const CheckoutPage = () => {
                 </div>
               </td>
 
-              <td>${(i.product.newPrice ?? i.product.price ?? 0)}</td>
+              <td>${i.product.newPrice ?? i.product.price ?? 0}</td>
               <td>
                 <div className="qty-controls">
                   <button onClick={() => updateQty(i.id, i.qty - 1)}>-</button>
@@ -101,9 +121,11 @@ const CheckoutPage = () => {
                   <button onClick={() => updateQty(i.id, i.qty + 1)}>+</button>
                 </div>
               </td>
-              <td>${((i.product.newPrice ?? i.product.price ?? 0) * i.qty)}</td>
+              <td>${(i.product.newPrice ?? i.product.price ?? 0) * i.qty}</td>
               <td>
-                <button className="remove-btn" onClick={() => removeItem(i.id)}>✖</button>
+                <button className="remove-btn" onClick={() => removeItem(i.id)}>
+                  ✖
+                </button>
               </td>
             </tr>
           ))}
@@ -111,13 +133,17 @@ const CheckoutPage = () => {
       </table>
 
       <div className="cart-summary">
-        <div className="summary-row">Total: <strong>${totalPrice.toFixed(2)}</strong></div>
+        <div className="summary-row">
+          Total: <strong>${totalPrice.toFixed(2)}</strong>
+        </div>
         <div className="summary-actions">
-          <button className="checkout-btn" onClick={() => clearCart()}>Clear Cart</button>
+          <button className="checkout-btn" onClick={() => clearCart()}>
+            Clear Cart
+          </button>
         </div>
       </div>
     </div>
-  );
+  )
 
   const renderCheckoutForm = () => (
     <div className="form-container">
@@ -148,7 +174,7 @@ const CheckoutPage = () => {
         </button>
       </form>
     </div>
-  );
+  )
 
   const renderOrderComplete = () => (
     <div className="history-container">
@@ -176,67 +202,63 @@ const CheckoutPage = () => {
         </tbody>
       </table>
     </div>
-  );
+  )
 
-  
-      const IMAGES = [
-          {id: 1, src: banner, alt: "Banner 1", name: "CHECKOUT"  },
-      ]
+  const IMAGES = [{ id: 1, src: banner, alt: 'Banner 1', name: 'CHECKOUT' }]
 
   return (
     <div>
-        <div>
+      <div>
         <section className="home" id="home">
-            {IMAGES.map((image) => (
-                <div className="home-banner" key={image.id}>
-                    <h1>{image.name}</h1>
-                    <img className='img' src={image.src} alt={image.alt} />
-                </div>
-            ))}
+          {IMAGES.map((image) => (
+            <div className="home-banner" key={image.id}>
+              <h1>{image.name}</h1>
+              <img className="img" src={image.src} alt={image.alt} />
+            </div>
+          ))}
         </section>
-    </div>
-        
-
-    <div className="checkout-page">
-      {/* TABS */}
-      <div className="tabs">
-        <button
-          className={activeTab === "cart" ? "active" : ""}
-          onClick={() => setActiveTab("cart")}
-        >
-          SHOPPING CART
-        </button>
-
-        <button
-          className={activeTab === "wishlist" ? "active" : ""}
-          onClick={() => setActiveTab("wishlist")}
-        >
-          WISHLIST
-        </button>
-
-        <button
-          className={activeTab === "checkout" ? "active" : ""}
-          onClick={() => setActiveTab("checkout")}
-        >
-          CHECKOUT
-        </button>
-
-        <button
-          className={activeTab === "complete" ? "active" : ""}
-          onClick={() => setActiveTab("complete")}
-        >
-          ORDER COMPLETE
-        </button>
       </div>
 
-      {/* PAGE CONTENT */}
-      {activeTab === "wishlist" && renderWishlist()}
-      {activeTab === "cart" && renderCart()}
-      {activeTab === "checkout" && renderCheckoutForm()}
-      {activeTab === "complete" && renderOrderComplete()}
-    </div>
-    </div>
-  );
-};
+      <div className="checkout-page">
+        {/* TABS */}
+        <div className="tabs">
+          <button
+            className={activeTab === 'cart' ? 'active' : ''}
+            onClick={() => setActiveTab('cart')}
+          >
+            SHOPPING CART
+          </button>
 
-export default CheckoutPage;
+          <button
+            className={activeTab === 'wishlist' ? 'active' : ''}
+            onClick={() => setActiveTab('wishlist')}
+          >
+            WISHLIST
+          </button>
+
+          <button
+            className={activeTab === 'checkout' ? 'active' : ''}
+            onClick={() => setActiveTab('checkout')}
+          >
+            CHECKOUT
+          </button>
+
+          <button
+            className={activeTab === 'complete' ? 'active' : ''}
+            onClick={() => setActiveTab('complete')}
+          >
+            ORDER COMPLETE
+          </button>
+        </div>
+
+        {/* PAGE CONTENT */}
+        {activeTab === 'wishlist' && renderWishlist()}
+        {activeTab === 'cart' && renderCart()}
+        {activeTab === 'checkout' && renderCheckoutForm()}
+        {activeTab === 'complete' && renderOrderComplete()}
+      </div>
+    </div>
+  )
+}
+
+export default CheckoutPage

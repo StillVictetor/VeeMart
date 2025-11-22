@@ -10,7 +10,9 @@ export default function ScrollToTop() {
       const id = hash.replace('#', '')
       // small timeout to allow new route to render
       setTimeout(() => {
-        const el = document.getElementById(id) || document.querySelector(`[name="${id}"]`)
+        const el =
+          document.getElementById(id) ||
+          document.querySelector(`[name="${id}"]`)
         if (el) {
           el.scrollIntoView({ behavior: 'smooth', block: 'start' })
           return

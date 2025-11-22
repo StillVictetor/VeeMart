@@ -1,5 +1,5 @@
-.pagination-page{
-    padding: 1rem 1% 2rem;
+.pagination-page {
+  padding: 1rem 1% 2rem;
 }
 .pagination-wrapper {
   display: flex;
@@ -11,10 +11,15 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
-
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .page-size {
@@ -73,7 +78,6 @@
   padding: 0 6px;
   font-size: 18px;
 }
-
 
 @media (max-width: 600px) {
   .pagination {

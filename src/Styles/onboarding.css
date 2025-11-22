@@ -1,7 +1,7 @@
 /* LUXURY COLORS */
 :root {
-  --bg: #f9f6f1;        /* off-white luxury tone */
-  --text: #1e1e1e;      /* deep charcoal */
+  --bg: #f9f6f1; /* off-white luxury tone */
+  --text: #1e1e1e; /* deep charcoal */
   --fade-duration: 1.2s;
 }
 
@@ -61,11 +61,19 @@
 }
 
 @keyframes fadeInScreen {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOutScreen {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

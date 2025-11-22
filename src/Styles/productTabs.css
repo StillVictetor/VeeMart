@@ -35,7 +35,7 @@
 }
 
 .tab-btn.active::after {
-  content: "";
+  content: '';
   width: 30px;
   height: 2px;
   background: #c8a165;
@@ -64,7 +64,9 @@
   overflow: hidden;
   margin: 0 auto;
   margin-bottom: 1.8rem;
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
   cursor: pointer;
 }
 
@@ -148,11 +150,13 @@
   text-align: center;
   visibility: hidden;
   z-index: 1;
-  transition: left 0.5s ease-in-out, visibility 0.3s ease;
+  transition:
+    left 0.5s ease-in-out,
+    visibility 0.3s ease;
 }
 
 .product-card .button-two::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -196,14 +200,17 @@
   background: #d9534f;
 }
 
-.bookmark-btn{
+.bookmark-btn {
   background: transparent;
   border: none;
   padding: 6px;
   border-radius: 6px;
   cursor: pointer;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
-.bookmark-btn.active{background:#000;color:#fff}
+.bookmark-btn.active {
+  background: #000;
+  color: #fff;
+}
