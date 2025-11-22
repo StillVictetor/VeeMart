@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, useCallback, useState } from "react";
+import React, { useRef, useCallback, useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import "../Styles/homeCarousel.css";
-import imgM2 from '../assets/shoe1.png'
-import imgM3 from '../assets/bg.png';
+import imgM2 from "../assets/shoe1.png";
+import imgM3 from "../assets/bg.png";
 
 const IMAGES = [
-  { id: 1, name: "Wear 1",  src: imgM2 },
-  { id: 2, name: "Wear 2",  src: imgM3 },
+  { id: 1, name: "Wear 1", src: imgM2 },
+  { id: 2, name: "Wear 2", src: imgM3 },
 ];
 
 export default function HomeCarousel() {
@@ -20,21 +21,21 @@ export default function HomeCarousel() {
   const timeRunning = 3000;
   const timeAutoNext = 7000;
 
+  // Animation bar reset
   const resetTimeAnimation = useCallback(() => {
     if (!runningTimeRef.current) return;
     const bar = runningTimeRef.current;
     bar.style.animation = "none";
-    bar.offsetHeight;
+    bar.offsetHeight; // force reflow
     bar.style.animation = "runningTime 7s linear forwards";
   }, []);
 
+  // Show slider function
   const showSlider = useCallback(
     (type) => {
       const box = boxRef.current;
       if (!box) return;
-
       const items = box.querySelectorAll(".item");
-
       if (type === "next") {
         box.appendChild(items[0]);
         setCurrentIndex((p) => (p + 1) % IMAGES.length);
@@ -42,25 +43,21 @@ export default function HomeCarousel() {
         box.prepend(items[items.length - 1]);
         setCurrentIndex((p) => (p === 0 ? IMAGES.length - 1 : p - 1));
       }
-
       clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
         carouselRef.current?.classList.remove("next", "prev");
       }, timeRunning);
-
       clearTimeout(autoNextRef.current);
       autoNextRef.current = setTimeout(() => showSlider("next"), timeAutoNext);
-
       resetTimeAnimation();
     },
     [resetTimeAnimation, timeRunning, timeAutoNext]
   );
 
+  // Go to slide function
   const goToSlide = (index) => {
     if (index === currentIndex) return;
-
     let diff = index - currentIndex;
-
     if (diff > 0) {
       while (diff--) showSlider("next");
     } else {
@@ -68,10 +65,10 @@ export default function HomeCarousel() {
     }
   };
 
+  // useEffect after all hooks are declared
   useEffect(() => {
     resetTimeAnimation();
     autoNextRef.current = setTimeout(() => showSlider("next"), timeAutoNext);
-
     return () => {
       clearTimeout(timeoutRef.current);
       clearTimeout(autoNextRef.current);
@@ -80,24 +77,31 @@ export default function HomeCarousel() {
 
   return (
     <section className="sec1" ref={carouselRef}>
-      <div className="box1" ref={boxRef}>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="box1"
+        ref={boxRef}
+      >
         {IMAGES.map((img) => (
           <div key={img.id} className="item">
             <div className="content">
               <div className="imgBox">
                 <img src={img.src} alt="" />
               </div>
-
               <div className="textBox">
-                <div className="des">{img.decription}</div>
+                <div className="des">{img.description}</div>
                 <div className="title">Search Less. Live More</div>
                 <div className="name">{img.name}</div>
-                <button className='button-two style-2' data-text="View Details">View Details</button>
+                <button className="button-two style-2" data-text="View Details">
+                  View Details
+                </button>
               </div>
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
 
       <div className="dots-container">
         {IMAGES.map((_, idx) => (

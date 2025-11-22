@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
-import './ProductQuickView.css'
+import '../Styles/ProductQuickView.css'
+import motion from 'framer-motion'
 import { X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
@@ -44,7 +45,11 @@ export default function ProductQuickView({ product, onClose, onAddToCart }) {
   if (!product) return null
 
   return (
-    <div className="pqv-overlay pqv-overlay--centered" onClick={onClose} aria-hidden={false}>
+    <motion.div 
+    initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }} className="pqv-overlay pqv-overlay--centered" onClick={onClose} aria-hidden={false}>
       <div
         className="pqv-modal pqv-modal--clean"
         onClick={(e) => e.stopPropagation()}
@@ -89,6 +94,6 @@ export default function ProductQuickView({ product, onClose, onAddToCart }) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

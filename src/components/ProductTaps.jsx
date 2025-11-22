@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../Styles/productTabs.css";
+import { motion } from "framer-motion";
 import { SearchIcon, BookmarkIcon, Star } from "lucide-react";
 import { useCart } from '../context/CartContext'
 import ProductQuickView from './ProductQuickView'
@@ -70,9 +71,20 @@ export default function ProductTabs() {
       </div>
 
       {/* PRODUCT GRID */}
-      <div className="products-container">
+      <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+       className="products-container">
+
         {data[activeTab].map((prod) => (
-          <div className="product-card" key={prod.id}>
+          <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+          className="product-card" key={prod.id}>
             <div style={{ position: "relative" }}>
               {prod.badge && <span className={`badge ${prod.badge.toLowerCase()}`}>{prod.badge}</span>}
               <img src={prod.img} alt={prod.name} className="product-image" />
@@ -102,9 +114,9 @@ export default function ProductTabs() {
                 View Details
               </button>
             </ul>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
       {quick && (
         <ProductQuickView product={quick} onClose={() => setQuick(null)} onAddToCart={handleAddToCart} />
       )}

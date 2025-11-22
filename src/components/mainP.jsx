@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Styles/mainP.css'
+import {motion} from 'framer-motion'
 import bg from '../assets/bg.png'
 import bg2 from '../assets/Old money.jfif'
 import { Star } from 'lucide-react'
@@ -23,7 +24,12 @@ const mainP = () => {
 
 
   return (
-    <div className='main-page' >
+    <motion.div  
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+           className='main-page' >
         <section className="main-section" id="main">
             {PRODUCTS.map((prod) =>(
                 <div className='promo-card' key={prod.id}>
@@ -51,7 +57,7 @@ const mainP = () => {
                 </div>
             ))}
         </section>
-    </div>
+    </motion.div>
   )
 }
 

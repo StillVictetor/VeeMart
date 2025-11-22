@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import '../Styles/featuredProduct.css'
 import wear from '../assets/wears1.jfif'
@@ -148,7 +149,14 @@ const FeaturedProduct = () => {
           <p>V</p>
         </Link>
 
-        <div className="carousel-container" ref={carouselRef}>
+        <motion.div
+          className="carousel-container"
+          ref={carouselRef}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+        >
           {FEATUREDPRODUCTS.map(item => (
             <div key={item.id} className="featured-card">
                     <div>
@@ -184,7 +192,7 @@ const FeaturedProduct = () => {
           </ul>
                 </div>
           ))}
-        </div>
+        </motion.div>
 
         <Link className="arrow-right" onClick={() => scroll('right')}>
           <p>N</p>
