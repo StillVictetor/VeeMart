@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Styles/footer.css'
+import { motion } from 'framer-motion'
 import pay1 from '../assets/react.svg'
 import pay2 from '../assets/react.svg'
 import pay3 from '../assets/react.svg'
@@ -9,12 +10,30 @@ export default function Footer() {
   return (
     <footer>
       {/* MAIN FOOTER */}
-      <div className="footer-area">
-        <div className="footer-container">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: false }}
+        className="footer-area"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+          className="footer-container"
+        >
           {/* CONTACT */}
           <div className="footer-section">
             <h3 className="footer-title title-border">Contact Us</h3>
-            <ul className="footer-contact">
+            <motion.ul
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="footer-contact"
+            >
               <li>
                 <span>Address :</span>
                 Unicus, Warri,
@@ -27,13 +46,19 @@ export default function Footer() {
               <li>
                 <span>Email :</span>veemart@gmail.com
               </li>
-            </ul>
+            </motion.ul>
           </div>
 
           {/* ACCOUNTS */}
           <div className="footer-section">
             <h3 className="footer-title title-border">Accounts</h3>
-            <ul className="footer-menu">
+            <motion.ul
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="footer-menu"
+            >
               <li>
                 <a href="#">My Account</a>
               </li>
@@ -49,13 +74,19 @@ export default function Footer() {
               <li>
                 <a href="#">Check Out</a>
               </li>
-            </ul>
+            </motion.ul>
           </div>
 
           {/* SHIPPING */}
           <div className="footer-section">
             <h3 className="footer-title title-border">Shipping</h3>
-            <ul className="footer-menu">
+            <motion.ul
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="footer-menu"
+            >
               <li>
                 <a href="#">New Products</a>
               </li>
@@ -71,10 +102,10 @@ export default function Footer() {
               <li>
                 <a href="#">Specials</a>
               </li>
-            </ul>
+            </motion.ul>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* COPYRIGHT */}
       <div className="copyright-area">

@@ -1,24 +1,51 @@
 import React from 'react'
 import '../Styles/home.css'
 import banner from '../assets/bg.png'
+import { motion } from 'framer-motion'
 import { LocateFixedIcon, PhoneIcon, MailIcon } from 'lucide-react'
 
 const ContactHome = () => {
   const IMAGES = [{ id: 1, src: banner, alt: 'Banner 1', name: 'CONTACT' }]
 
   return (
-    <div>
-      <section className="home" id="home">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: false }}
+    >
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: false }}
+        className="home"
+        id="home"
+      >
         {IMAGES.map((image) => (
           <div className="home-banner" key={image.id}>
             <h1>{image.name}</h1>
-            <img className="img" src={image.src} alt={image.alt} />
+            <motion.img
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="img"
+              src={image.src}
+              alt={image.alt}
+            />
           </div>
         ))}
-      </section>
+      </motion.section>
       <div className="contact">
         <div className="contact-grid">
-          <div className="contact-details">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="contact-details"
+          >
             <div>
               <h2>Contact Details</h2>
               <p>
@@ -60,7 +87,7 @@ const ContactHome = () => {
               ></textarea>
               <input type="submit" className="btn" />
             </form>
-          </div>
+          </motion.div>
 
           <div style={{ width: '100%', height: '450px' }}>
             <iframe
@@ -74,7 +101,7 @@ const ContactHome = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

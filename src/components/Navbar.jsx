@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../Styles/navbar.css'
+import { motion } from 'framer-motion'
 import logo from '../assets/logo.png'
 import { Menu, ShoppingCart, X, MenuIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -13,8 +14,20 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar-left">
+      <motion.nav
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: false }}
+        className="navbar"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+          className="navbar-left"
+        >
           <button
             className="icon-btn1"
             onClick={() => setOpen(true)}
@@ -22,16 +35,28 @@ export default function Navbar() {
           >
             <Menu size={30} />
           </button>
-        </div>
+        </motion.div>
 
-        <div className="navbar-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+          className="navbar-center"
+        >
           <a href="/">
             {' '}
             <img src={logo} alt="Veemart logo" />
           </a>
-        </div>
+        </motion.div>
 
-        <div className="navbar-right">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+          className="navbar-right"
+        >
           <button
             className="icon-btn1"
             aria-label="Cart"
@@ -42,17 +67,27 @@ export default function Navbar() {
               <span className="cart-badge">{cart.totalItems}</span>
             )}
           </button>
-        </div>
-      </nav>
+        </motion.div>
+      </motion.nav>
 
       {/* Overlay */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: false }}
         className={`overlay ${open ? 'show' : ''}`}
         onClick={() => setOpen(false)}
       />
 
       {/* Side Menu */}
-      <aside className={`side-menu ${open ? 'open' : ''}`}>
+      <aside
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: false }}
+        className={`side-menu ${open ? 'open' : ''}`}
+      >
         <div className="side-header">
           <button
             className="icon-btn"

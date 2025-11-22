@@ -121,7 +121,13 @@ const AboutHome = () => {
         >
           <h2>Team Member</h2>
 
-          <div className="team-grid">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="team-grid"
+          >
             {TEAM.map((team) => (
               <div className="team-card" key={team.id}>
                 <img className="profile" src={team.src} alt={team.alt} />
@@ -130,7 +136,7 @@ const AboutHome = () => {
                 <p>{team.description}</p>
               </div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </motion.div>
