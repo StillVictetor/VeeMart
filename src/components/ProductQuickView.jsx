@@ -73,38 +73,65 @@ export default function ProductQuickView({ product, onClose, onAddToCart }) {
         </button>
 
         <div className="pqv-body">
-          <div className="pqv-image">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="pqv-image"
+          >
             <img src={product.src || product.img} alt={product.name} />
-          </div>
+          </motion.div>
           <div className="pqv-info">
-            <h3 className="pqv-title">{product.name}</h3>
+            <motion.h3
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="pqv-title"
+            >
+              {product.name}
+            </motion.h3>
             {product.category && (
               <div className="pqv-category">{product.category}</div>
             )}
-            <div className="pqv-prices">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="pqv-prices"
+            >
               <span className="pqv-old">
                 {product.oldPrice ? `$${product.oldPrice}` : ''}
               </span>
               <span className="pqv-new">
                 ${product.newPrice ?? product.price}
               </span>
-            </div>
+            </motion.div>
             {product.description && (
               <p className="pqv-desc">{product.description}</p>
             )}
 
-            <div className="pqv-actions">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="pqv-actions"
+            >
               <Link
                 to={`/product/${product.id ?? ''}`}
-                className="pqv-btn pqv-details"
+                className="button-two style-2"
+                data-text="View Details"
                 onClick={onClose}
               >
                 View Details
               </Link>
               <button
-                className="pqv-btn pqv-add"
+                className="button-two style-2"
+                data-text="Add to Cart"
                 onClick={() => {
-                  // prefer context if available
                   if (cart && cart.addItem) cart.addItem(product, 1)
                   else onAddToCart && onAddToCart(product)
                   onClose()
@@ -112,7 +139,7 @@ export default function ProductQuickView({ product, onClose, onAddToCart }) {
               >
                 Add to Cart
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

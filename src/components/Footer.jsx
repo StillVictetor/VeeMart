@@ -10,9 +10,7 @@ export default function Footer() {
   return (
     <footer>
       {/* MAIN FOOTER */}
-      <div
-        className="footer-area"
-      >
+      <div className="footer-area">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -105,8 +103,7 @@ export default function Footer() {
 
       {/* COPYRIGHT */}
       <div className="copyright-area">
-        <div className="copyright-container"
-        >
+        <div className="copyright-container">
           <p className="copyright">
             &copy; CodeCarnival 2022. All Rights Reserved.
           </p>

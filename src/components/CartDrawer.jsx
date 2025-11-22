@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Styles/CartDrawer.css'
 import { useCart } from '../context/CartContext'
-import { X } from 'lucide-react'
+import { X, TrashIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 export default function CartDrawer({ open, onClose }) {
@@ -21,9 +21,6 @@ export default function CartDrawer({ open, onClose }) {
       >
         <div className="cart-header">
           <h3>Shopping Cart ({totalItems})</h3>
-          <button className="icon-btn" onClick={onClose} aria-label="Close">
-            <X />
-          </button>
         </div>
 
         <div className="cart-body">
@@ -59,7 +56,7 @@ export default function CartDrawer({ open, onClose }) {
                         className="remove"
                         onClick={() => removeItem(i.id)}
                       >
-                        Remove
+                        <TrashIcon size={20} />
                       </button>
                     </div>
                   </div>
