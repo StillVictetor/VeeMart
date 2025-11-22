@@ -109,12 +109,24 @@ export default function Footer() {
 
       {/* COPYRIGHT */}
       <div className="copyright-area">
-        <div className="copyright-container">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+          className="copyright-container"
+        >
           <p className="copyright">
             &copy; CodeCarnival 2022. All Rights Reserved.
           </p>
 
-          <div className="payment">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="payment"
+          >
             <a href="#">
               <img src={pay1} alt="payment" />
             </a>
@@ -127,8 +139,8 @@ export default function Footer() {
             <a href="#">
               <img src={pay4} alt="payment" />
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </footer>
   )
