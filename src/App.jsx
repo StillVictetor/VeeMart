@@ -14,6 +14,8 @@ import FeaturedProduct from './components/FeaturedProduct.jsx'
 import AboutHome from './components/AboutHome.jsx'
 import ContactHome from './components/ContactHome.jsx'
 import Checkout from './components/Checkout.jsx'
+import Details from './components/Details.jsx'
+import ProductRotate from './components/productRotate.jsx'
 
 function App() {
   const [showOnboarding, setShowOnboarding] = useState(true)
@@ -45,6 +47,7 @@ function App() {
             </>
           }
         ></Route>
+
         <Route
           path="/shop"
           element={
@@ -75,6 +78,7 @@ function App() {
         />
 
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/product/:id" element={<Details />} />
       </Routes>
       <Footer />
     </>

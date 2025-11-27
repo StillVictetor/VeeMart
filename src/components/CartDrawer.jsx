@@ -45,7 +45,7 @@ export default function CartDrawer({ open, onClose }) {
                   <div className="ci-info">
                     <div className="ci-name">{i.product.name}</div>
                     <div className="ci-price">
-                      $
+                      ₦
                       {(
                         i.product.newPrice ??
                         i.product.price ??
@@ -76,7 +76,7 @@ export default function CartDrawer({ open, onClose }) {
 
         <div className="cart-footer">
           <div className="cart-total">
-            Total: <strong>${totalPrice.toLocaleString()}</strong>
+            Total: <strong>₦{totalPrice.toLocaleString()}</strong>
           </div>
           <div className="cart-actions">
             <button

@@ -18,7 +18,7 @@
   padding: 1.3rem 1rem 1.3rem;
   background: #fff;
   border: none;
-  font-size: .70rem;
+  font-size: 0.7rem;
   font-weight: 900;
   cursor: pointer;
   color: #666666;
@@ -104,6 +104,13 @@
   text-align: center;
 }
 
+.form-container h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #666666;
+}
+
 .form-container form {
   display: flex;
   flex-direction: column;
@@ -112,7 +119,7 @@
 
 .form-container input,
 select {
-  padding: .90rem 1rem .90rem;
+  padding: 0.9rem 1rem 0.9rem;
   border: none;
   background-color: #f2f2f2;
   outline: none;
@@ -127,8 +134,9 @@ select {
 }
 
 .history-container table {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
+  text-align: center;
 }
 
 .history-container th,
@@ -137,12 +145,12 @@ td {
   border-bottom: 1px solid #ccc;
 }
 
-.summary-actions{
+.summary-actions {
   display: flex;
   gap: 20px;
 }
 
-.form-container button{
+.form-container button {
   width: 150px;
   margin: 1rem auto;
 }
@@ -222,4 +230,33 @@ td {
   height: 45px;
   line-height: 45px;
   padding: 0 30px;
+}
+
+
+@media (max-width: 768px) {
+  .checkout-page {
+    padding: 2rem 4% 2rem;
+  }
+
+  .tabs button {
+    width: 22%;
+    font-size: 0.6rem;
+    padding: 1rem 0.5rem 1rem;
+  }
+
+  .list-container,
+  .form-container,
+  .history-container table {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .product-info img {
+    width: 80px;
+  }
+
+  .summary-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

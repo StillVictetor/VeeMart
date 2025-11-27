@@ -239,3 +239,26 @@
     box-shadow 200ms ease;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .carousel-container {
+    gap: 1rem;
+  }
+  .featured-card {
+  flex: 0 0 clamp(280px, 20vw, 170px);
+}
+
+.arrow-right{
+  display: none;
+}
+
+.arrow-left{
+  display: none;
+}
+
+.featured-card .button-two{
+  padding: 0.3rem;
+  width: 160px;
+}
+
+}

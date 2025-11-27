@@ -6,9 +6,19 @@ import wears from '../assets/wears1.jfif'
 import wears2 from '../assets/PoloShirt.jfif'
 import wears3 from '../assets/PoloShirt.jfif'
 import { SearchIcon, BookmarkIcon, Star } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import ProductQuickView from './ProductQuickView'
 import Pagination from './Pagination'
+
+// cloths import here
+import cloth1 from '../assets/blackPolo.jfif'
+import cloth2 from '../assets/brownCloth.jfif'
+import cloth3 from '../assets/darkblackPolo.jfif'
+import cloth4 from '../assets/darkPolo.jfif'
+import cloth5 from '../assets/wears1.jfif'
+import cloth6 from '../assets/grey trouser.jfif'
+import cloth7 from '../assets/PoloShirt.jfif'
 
 const Products = () => {
   const [quick, setQuick] = useState(null)
@@ -26,7 +36,7 @@ const Products = () => {
       oldPrice: 2000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth1,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -42,7 +52,7 @@ const Products = () => {
       oldPrice: 1500,
       newPrice: 49000,
       discount: 2,
-      src: wears2,
+      src: cloth2,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -58,7 +68,7 @@ const Products = () => {
       oldPrice: 9000,
       newPrice: 49000,
       discount: 2,
-      src: wears3,
+      src: cloth3,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -74,7 +84,7 @@ const Products = () => {
       oldPrice: 999,
       newPrice: 49000,
       discount: 2,
-      src: wears,
+      src: cloth4,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -90,7 +100,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: wears,
+      src: cloth5,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -106,7 +116,7 @@ const Products = () => {
       oldPrice: 6000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth6,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -122,7 +132,7 @@ const Products = () => {
       oldPrice: 3000,
       newPrice: 49000,
       discount: 2,
-      src: wears2,
+      src: cloth7,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -138,7 +148,7 @@ const Products = () => {
       oldPrice: 2000,
       newPrice: 49000,
       discount: 2,
-      src: wears,
+      src: cloth1,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -154,7 +164,7 @@ const Products = () => {
       oldPrice: 1000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth2,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -170,7 +180,7 @@ const Products = () => {
       oldPrice: 3500,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth4,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -186,7 +196,7 @@ const Products = () => {
       oldPrice: 8000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth5,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -202,7 +212,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth6,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -218,7 +228,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth7,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -234,7 +244,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth1,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -250,7 +260,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth2,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -266,7 +276,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth3,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -282,7 +292,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth4,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -298,7 +308,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth5,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -314,7 +324,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth6,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -330,7 +340,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth7,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -346,7 +356,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth1,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -362,7 +372,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth2,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -378,7 +388,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth3,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -394,7 +404,7 @@ const Products = () => {
       oldPrice: 5000,
       newPrice: 49000,
       discount: 2,
-      src: cloth,
+      src: cloth4,
       category: 'top',
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
@@ -448,7 +458,7 @@ const Products = () => {
                 alt={product.name}
                 className="product-image"
               />
-              <span className="p-price">${product.oldPrice}</span>
+              <span className="p-price">₦{product.oldPrice}</span>
             </motion.div>
 
             <h3 className="p-name">{product.name}</h3>
@@ -493,9 +503,14 @@ const Products = () => {
                   onClick={() => setQuick(product)}
                 />
               </li>
-              <button className="button-two style-2" data-text="View Details">
+              <Link
+                to={`/product/${product.id}`}
+                state={product}
+                className="button-two style-2"
+                data-text="View Details"
+              >
                 View Details
-              </button>
+              </Link>
             </motion.ul>
           </motion.div>
         ))}

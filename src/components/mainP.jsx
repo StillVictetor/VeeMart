@@ -2,7 +2,7 @@ import React from 'react'
 import '../Styles/mainP.css'
 import { motion } from 'framer-motion'
 import bg from '../assets/bg.png'
-import bg2 from '../assets/Old money.jfif'
+import img from '../assets/fullOutfit2.jfif'
 import { Star } from 'lucide-react'
 
 const mainP = () => {
@@ -15,7 +15,7 @@ const mainP = () => {
       oldPrice: 2000,
       newPrice: 49000,
       discount: 2,
-      src: bg2,
+      src: img,
     },
   ]
 

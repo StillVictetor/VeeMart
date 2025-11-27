@@ -2,10 +2,19 @@ import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import '../Styles/featuredProduct.css'
-import wear from '../assets/wears1.jfif'
+
 import { Star, BookmarkIcon, SearchIcon } from 'lucide-react'
 import ProductQuickView from './ProductQuickView'
 import { useCart } from '../context/CartContext'
+
+// cloths import here
+import cloth1 from '../assets/blackPolo.jfif'
+import cloth2 from '../assets/brownCloth.jfif'
+import cloth3 from '../assets/darkblackPolo.jfif'
+import cloth4 from '../assets/darkPolo.jfif'
+import cloth5 from '../assets/wears1.jfif'
+import cloth6 from '../assets/grey trouser.jfif'
+import cloth7 from '../assets/PoloShirt.jfif'
 
 const FeaturedProduct = () => {
   const [quick, setQuick] = useState(null)
@@ -14,11 +23,9 @@ const FeaturedProduct = () => {
     {
       id: 1,
       name: 'Wear 1',
-      oldPrice: 2000,
-      newPrice: 49000,
+      Price: 15500,
       discount: 2,
-      src: wear,
-      category: 'top',
+      src: cloth1,
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
@@ -30,11 +37,9 @@ const FeaturedProduct = () => {
     {
       id: 2,
       name: 'Wear 2',
-      oldPrice: 2000,
-      newPrice: 49000,
+      Price: 15500,
       discount: 2,
-      src: wear,
-      category: 'top',
+      src: cloth2,
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
@@ -46,11 +51,9 @@ const FeaturedProduct = () => {
     {
       id: 3,
       name: 'Wear 3',
-      oldPrice: 2000,
-      newPrice: 49000,
+      Price: 15500,
       discount: 2,
-      src: wear,
-      category: 'top',
+      src: cloth3,
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
@@ -62,11 +65,9 @@ const FeaturedProduct = () => {
     {
       id: 4,
       name: 'Wear 4',
-      oldPrice: 2000,
-      newPrice: 49000,
+      Price: 15500,
       discount: 2,
-      src: wear,
-      category: 'top',
+      src: cloth4,
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
@@ -77,12 +78,10 @@ const FeaturedProduct = () => {
 
     {
       id: 5,
-      name: 'Wear 4',
-      oldPrice: 2000,
-      newPrice: 49000,
+      name: 'Wear 5',
+      Price: 18000,
       discount: 2,
-      src: wear,
-      category: 'top',
+      src: cloth5,
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
@@ -93,12 +92,10 @@ const FeaturedProduct = () => {
 
     {
       id: 6,
-      name: 'Wear 4',
-      oldPrice: 2000,
-      newPrice: 49000,
+      name: 'Wear 6',
+      Price: 25000,
       discount: 2,
-      src: wear,
-      category: 'top',
+      src: cloth6,
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
@@ -109,12 +106,10 @@ const FeaturedProduct = () => {
 
     {
       id: 7,
-      name: 'Wear 4',
-      oldPrice: 2000,
-      newPrice: 49000,
+      name: 'Wear 7',
+      Price: 18000,
       discount: 2,
-      src: wear,
-      category: 'top',
+      src: cloth7,
       description:
         'Comfortable and stylish premium hoodie perfect for casual wear. Made from high-quality fabric with excellent durability.',
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
@@ -171,7 +166,7 @@ const FeaturedProduct = () => {
                     alt={item.name}
                     className="featured-image"
                   />
-                  <span className="p-price">${item.oldPrice}</span>
+                  <span className="p-price">₦{item.Price}</span>
                 </div>
 
                 <h3 className="p-name">{item.name}</h3>
@@ -210,12 +205,14 @@ const FeaturedProduct = () => {
                       onClick={() => setQuick(item)}
                     />
                   </li>
-                  <button
+                  <Link
+                    to={`/product/${item.id}`}
+                    state={item}
                     className="button-two style-2"
                     data-text="View Details"
                   >
                     View Details
-                  </button>
+                  </Link>
                 </ul>
               </div>
             ))}

@@ -1,6 +1,7 @@
 import React, { useRef, useCallback, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import '../Styles/homeCarousel.css'
+import { Link } from 'react-router-dom'
 import imgM2 from '../assets/shoe1.png'
 import imgM3 from '../assets/bg.png'
 
@@ -94,9 +95,14 @@ export default function HomeCarousel() {
                 <div className="des">{img.description}</div>
                 <div className="title">Search Less. Live More</div>
                 <div className="name">{img.name}</div>
-                <button className="button-two style-2" data-text="View Details">
+                <Link
+                  to={`/product/${img.id}`}
+                  state={img}
+                  className="button-two style-2"
+                  data-text="View Details"
+                >
                   View Details
-                </button>
+                </Link>
               </div>
             </div>
           </div>

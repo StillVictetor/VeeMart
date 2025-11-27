@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../Styles/productTabs.css'
 import { motion } from 'framer-motion'
 import { SearchIcon, BookmarkIcon, Star } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import ProductQuickView from './ProductQuickView'
 
@@ -10,107 +11,133 @@ import img2 from '../assets/Available in colors and size’s  Price_250gh.jfif'
 import img3 from '../assets/Cotton Zip Sweater Polo.jfif'
 import img4 from '../assets/grey trouser.jfif'
 
-// Dummy Product Data
+// cloths import here
+import cloth1 from '../assets/blackPolo.jfif'
+import cloth2 from '../assets/brownCloth.jfif'
+import cloth3 from '../assets/darkblackPolo.jfif'
+import cloth4 from '../assets/darkPolo.jfif'
+import cloth5 from '../assets/wears1.jfif'
+import cloth6 from '../assets/grey trouser.jfif'
+import cloth7 from '../assets/PoloShirt.jfif'
+
 const data = {
   new: [
     {
       id: 1,
       img: img1,
       badge: 'New',
-      name: 'Product Name',
-      price: 56.2,
-      category: 'Furniture',
+      name: 'Wear 1',
+      price: 18000,
     },
     {
       id: 2,
       img: img2,
-      badge: 'Sale',
-      name: 'Product Name',
-      price: 36.2,
-      category: 'Furniture',
+      badge: 'New',
+      name: 'Wear 2',
+      price: 18500,
     },
-    { id: 3, img: img3, name: 'Name', price: 66.2, category: 'Furniture' },
-    { id: 4, img: img4, name: 'Name', price: 57.2, category: 'Furniture' },
+    {
+      id: 3,
+      img: img3,
+      badge: 'New',
+      name: 'Wear 3',
+      price: 18000,
+    },
+    {
+      id: 4,
+      img: img4,
+      badge: 'New',
+      name: 'Wear 4',
+      price: 18000,
+    },
   ],
+
   bestseller: [
     {
       id: 5,
       img: img2,
       badge: 'Sale',
-      name: 'Top Seller',
-      price: 48.5,
-      category: 'Furniture',
+      name: 'Wear 1',
+      price: 18500,
     },
     {
       id: 6,
-      img: img1,
-      badge: 'New',
-      name: 'Top Seller',
-      price: 75.0,
-      category: 'Furniture',
+      img: cloth3,
+      badge: 'Sale',
+      name: 'Wear 2',
+      price: 15000,
     },
     {
       id: 7,
-      img: img1,
-      name: 'Top Seller',
-      price: 75.0,
-      category: 'Furniture',
+      img: cloth5,
+      badge: 'Sale',
+      name: 'Wear 3',
+      price: 15500,
     },
     {
       id: 8,
-      img: img1,
-      badge: 'New',
-      name: 'Top Seller',
-      price: 75.0,
-      category: 'Furniture',
+      img: cloth6,
+      badge: 'Sale',
+      name: 'Wear 4',
+      price: 17500,
     },
   ],
+
   mostview: [
     {
       id: 9,
-      img: img4,
-      name: 'Most Viewed',
-      price: 44.5,
-      category: 'Furniture',
+      img: cloth2,
+      name: 'wear 1',
+      price: 15000,
     },
     {
       id: 10,
-      img: img3,
-      name: 'Most Viewed',
-      price: 82.9,
-      category: 'Furniture',
+      img: cloth4,
+      name: 'Wear 2',
+      price: 18200,
     },
     {
       id: 11,
-      img: img3,
-      name: 'Most Viewed',
-      price: 82.9,
-      category: 'Furniture',
+      img: cloth5,
+      name: 'Wear 3',
+      price: 14500,
     },
     {
       id: 12,
-      img: img3,
-      name: 'Most Viewed',
-      price: 82.9,
-      category: 'Furniture',
+      img: cloth7,
+      name: 'Wear 4',
+      price: 16500,
     },
   ],
+
   discounts: [
     {
       id: 13,
-      img: img2,
-      badge: 'Sale',
-      name: 'Discount Item',
-      price: 22.5,
-      category: 'Furniture',
+      img: cloth4,
+      badge: 10 + '% Off',
+      name: 'Wear 1',
+      price: 14000,
     },
     {
       id: 14,
-      img: img1,
-      badge: 'Sale',
-      name: 'Discount Item',
-      price: 18.0,
-      category: 'Furniture',
+      img: cloth3,
+      badge: 5 + '% Off',
+      name: 'Wear 2',
+      price: 16000,
+    },
+    {
+      id: 15,
+      img: cloth2,
+      badge: 3 + '% Off',
+      name: 'Wear 3',
+      price: 15000,
+    },
+    {
+      id: 16,
+      img: cloth1,
+      badge: 20 + '% Off',
+      name: 'Wear 4',
+      price: 20000,
     },
   ],
 }
@@ -173,7 +200,7 @@ export default function ProductTabs() {
                 </span>
               )}
               <img src={prod.img} alt={prod.name} className="product-image" />
-              <span className="p-price">${prod.price.toFixed(2)}</span>
+              <span className="p-price">₦{prod.price}</span>
             </div>
 
             <h3 className="p-name">{prod.name}</h3>
@@ -207,9 +234,14 @@ export default function ProductTabs() {
                   onClick={() => setQuick(prod)}
                 />
               </li>
-              <button className="button-two style-2" data-text="View Details">
+              <Link
+                to={`/product/${prod.id}`}
+                state={prod}
+                className="button-two style-2"
+                data-text="View Details"
+              >
                 View Details
-              </button>
+              </Link>
             </ul>
           </motion.div>
         ))}

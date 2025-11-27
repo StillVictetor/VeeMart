@@ -22,15 +22,7 @@ export default function CheckoutPage({ onClose, onAddToCart }) {
   } = useCart()
 
   // transaction history (stateful so we can add new transactions)
-  const [transactionHistory, setTransactionHistory] = useState([
-    {
-      id: 1,
-      date: '2025-01-05',
-      items: 3,
-      total: '$150',
-      status: 'Success',
-    },
-  ])
+  const [transactionHistory, setTransactionHistory] = useState([])
 
   // payment flow state
   const [paymentDetails, setPaymentDetails] = useState(null)
@@ -61,7 +53,7 @@ export default function CheckoutPage({ onClose, onAddToCart }) {
                 </div>
               </td>
 
-              <td>${item.newPrice ?? item.price ?? ''}</td>
+              <td>₦{item.newPrice ?? item.price ?? ''}</td>
               <td>{item.stock ?? 'IN STOCK'}</td>
               <td>
                 <button
@@ -116,7 +108,7 @@ export default function CheckoutPage({ onClose, onAddToCart }) {
                 </div>
               </td>
 
-              <td>${i.product.newPrice ?? i.product.price ?? 0}</td>
+              <td>₦{i.product.newPrice ?? i.product.price ?? 0}</td>
               <td>
                 <div className="qty-controls">
                   <button onClick={() => updateQty(i.id, i.qty - 1)}>-</button>
@@ -124,7 +116,7 @@ export default function CheckoutPage({ onClose, onAddToCart }) {
                   <button onClick={() => updateQty(i.id, i.qty + 1)}>+</button>
                 </div>
               </td>
-              <td>${(i.product.newPrice ?? i.product.price ?? 0) * i.qty}</td>
+              <td>₦{(i.product.newPrice ?? i.product.price ?? 0) * i.qty}</td>
               <td>
                 <button className="remove-btn" onClick={() => removeItem(i.id)}>
                   ✖
@@ -137,7 +129,7 @@ export default function CheckoutPage({ onClose, onAddToCart }) {
 
       <div className="cart-summary">
         <div className="summary-row">
-          Total: <strong>${totalPrice.toFixed(2)}</strong>
+          Total: <strong>₦{totalPrice.toFixed(2)}</strong>
         </div>
         <div className="summary-actions">
           <button
@@ -159,11 +151,9 @@ export default function CheckoutPage({ onClose, onAddToCart }) {
     </div>
   )
 
-  // Payment instructions moved to PaymentInstructions component
-
   const renderCheckoutForm = () => (
     <div className="form-container">
-      <h2>Checkout Form</h2>
+      <h2>CHECKOUT FORM</h2>
 
       <form
         onSubmit={(e) => {
@@ -191,7 +181,7 @@ export default function CheckoutPage({ onClose, onAddToCart }) {
         <input name="city" type="text" placeholder="Enter city" />
 
         <select name="method">
-          <option>Select Payment Method</option>  
+          <option>Select Payment Method</option>
           <option>Credit Card</option>
           <option>Bank Transfer</option>
           <option>Cash on Delivery</option>

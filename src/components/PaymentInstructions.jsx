@@ -11,12 +11,12 @@ export default function PaymentInstructions({
   const [paymentCompleted, setPaymentCompleted] = useState(false)
 
   const bank = {
-    accountNumber: '1234567890',
-    accountName: 'VeeMart Ltd',
-    bankName: 'Example Bank',
+    accountNumber: '9078119933',
+    accountName: 'Victor Stephen',
+    bankName: 'Opay',
   }
 
-  const amountText = `$${Number(amount ?? 0).toFixed(2)}`
+  const amountText = `₦${Number(amount ?? 0).toFixed(2)}`
 
   const handleGoToTransaction = () => {
     const tx = {

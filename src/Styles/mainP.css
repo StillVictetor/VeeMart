@@ -105,3 +105,16 @@
 .main-grid h1:hover {
   color: #c8a165;
 }
+
+
+@media (max-width: 768px) {
+  .main-section {
+    grid-template-columns: 1fr;
+  }
+
+  .main-page .main-grid {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+}

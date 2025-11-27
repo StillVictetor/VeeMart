@@ -102,12 +102,7 @@ export default function ProductQuickView({ product, onClose, onAddToCart }) {
               viewport={{ once: false }}
               className="pqv-prices"
             >
-              <span className="pqv-old">
-                {product.oldPrice ? `$${product.oldPrice}` : ''}
-              </span>
-              <span className="pqv-new">
-                ${product.newPrice ?? product.price}
-              </span>
+              <span className="pqv-new">₦{product.Price ?? product.price}</span>
             </motion.div>
             {product.description && (
               <p className="pqv-desc">{product.description}</p>
@@ -122,6 +117,7 @@ export default function ProductQuickView({ product, onClose, onAddToCart }) {
             >
               <Link
                 to={`/product/${product.id ?? ''}`}
+                state={product}
                 className="button-two style-2"
                 data-text="View Details"
                 onClick={onClose}

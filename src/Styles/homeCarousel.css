@@ -9,7 +9,7 @@
   width: 100%;
   height: 100vh;
   padding: 6rem 4% 2rem;
-  background: #f6f6f6; /* ONLY WHITE */
+  background: #f6f6f6;
   overflow: hidden;
 }
 
@@ -225,4 +225,27 @@
   height: 45px;
   line-height: 45px;
   padding: 0 30px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .textBox{
+    order: 2;
+    margin-top: -5rem;
+  }
+
+  .imgBox img {
+    width: 100%;
+    height: auto;
+  }
+
+  .dots-container {
+    left: 50%;
+  }
+  
 }

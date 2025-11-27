@@ -1,6 +1,7 @@
 .footer-area {
   background: #f6f6f6;
   padding: 120px 0 75px;
+  align-items: center;
 }
 
 .footer-title {
@@ -43,6 +44,7 @@
   color: #666;
   line-height: 27px;
   display: block;
+  text-decoration: none;
 }
 
 .footer-menu li a:hover {
@@ -93,7 +95,40 @@
   flex: 1 1 250px;
 }
 
+.footer-section ul{
+  list-style-type: none;
+}
+
 .footer-products .footer-product-grid {
   display: flex;
   gap: 20px;
+}
+
+.payment img {
+  max-height: 50px;
+  margin-bottom: -1rem;
+}
+
+
+@media (max-width: 768px) {
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+  }
+  .footer-products .footer-product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .copyright-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 0;
+  }
 }

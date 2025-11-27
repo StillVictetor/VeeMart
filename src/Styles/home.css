@@ -43,7 +43,7 @@
   }
   100% {
     transform: translate(-50%, -50%);
-    letter-spacing: 2rem;
+    letter-spacing: .5rem;
     opacity: 1;
   }
 }
@@ -196,4 +196,50 @@
 
 .contact-details .icons {
   font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .about .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-banner h1 {
+    font-size: 4rem;
+  }
+
+  .home-banner img {
+  object-position: center;
+  opacity: 0.8;
+  width: 420px;
+  margin-top: -3rem;
+  }
+
+  .about .about-pic {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .about-grid div {
+    position: static;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-details,
+  .send-message {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .send-message .btn {
+    width: 100%;
+  }
 }
