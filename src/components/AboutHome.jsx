@@ -3,7 +3,10 @@ import '../Styles/home.css'
 import { motion } from 'framer-motion'
 import banner from '../assets/bg.png'
 import aboutPic from '../assets/aboutpic.jfif'
-import teampic from '../assets/profilepic1.jpg'
+import team1 from '../assets/team1.jfif'
+import team2 from '../assets/team2.jfif'
+import team3 from '../assets/team3.jfif'
+import team4 from '../assets/team4.jfif'
 
 const AboutHome = () => {
   const IMAGES = [{ id: 1, src: banner, alt: 'Banner 1', name: 'ABOUT' }]
@@ -11,38 +14,38 @@ const AboutHome = () => {
   const TEAM = [
     {
       id: 1,
-      src: teampic,
-      name: 'VICTOR STEPHEN',
-      title: 'CHAIRMAN',
+      src: team1,
+      name: 'Victor Stephen',
+      title: 'Founder & Creative Director',
       description:
-        'There are many variations of passage of Lorem Ipsum available, but the in majority have suffered.',
+        'Leads the brand vision of Veemart, focusing on creating a timeless and elegant fashion experience inspired by classic style.',
     },
 
     {
       id: 2,
-      src: teampic,
-      name: 'VICTOR STEPHEN',
-      title: 'CHIEF MARKETING',
+      src: team2,
+      name: 'Michael Lawson',
+      title: 'Head of Marketing',
       description:
-        'There are many variations of passage of Lorem Ipsum available, but the in majority have suffered.',
+        'Oversees brand communication and customer outreach, ensuring Veemart stays connected with its audience in a meaningful way.',
     },
 
     {
       id: 3,
-      src: teampic,
-      name: 'VICTOR STEPHEN',
-      title: 'CHAIRMAN',
+      src: team3,
+      name: 'Daniel Okoro',
+      title: 'Operations Manager',
       description:
-        'There are many variations of passage of Lorem Ipsum available, but the in majority have suffered.',
+        'Handles day-to-day management, product organization, and smooth workflow to keep the platform running efficiently.',
     },
 
     {
       id: 4,
-      src: teampic,
-      name: 'VICTOR STEPHEN',
-      title: 'CHAIRMAN',
+      src: team4,
+      name: 'Samuel Adeyemi',
+      title: 'Style & Branding Lead',
       description:
-        'There are many variations of passage of Lorem Ipsum available, but the in majority have suffered.',
+        'Shapes the visual identity of Veemart, curating the old-money aesthetic and guiding the overall fashion direction.',
     },
   ]
 
@@ -94,21 +97,22 @@ const AboutHome = () => {
           >
             <h3>ABOUT VEEMART</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
-              consequatur esse nobis earum consectetur ratione delectus
-              perspiciatis veniam optio dolores! Asperiores, nemo explicabo
-              molestiae doloremque commodi maxime dignissimos distinctio natus.
+              Veemart is a men's fashion brand created to bring a sense of
+              class, confidence, and timeless style to modern shoppers. Inspired
+              by the old-money aesthetic, the brand focuses on clean designs,
+              calm colors, and a luxurious yet simple shopping experience. Every
+              piece showcased on Veemart is selected with the idea of elegance
+              and long lasting fashion, giving men the chance to look sharp
+              without trying too hard.
             </p>
 
             <p>
-              Id incidunt ratione enim. Maxime minima voluptas quaerat quod
-              voluptatibus, eaque neque qui libero possimus rerum eos
-              repellendus, beatae totam harum recusandae tempora, non unde
-              laudantium eum at dolor. Incidunt. Provident molestias pariatur
-              architecto tempora voluptatem eaque a tempore corporis, commodi
-              quisquam tenetur modi. Dolores, dolorem commodi soluta possimus
-              repellat temporibus ipsam est voluptatibus molestias atque aperiam
-              officia tempore fugit.
+              Our mission is to make high-quality fashion accessible and
+              enjoyable. Veemart represents a blend of classic taste and modern
+              presentation, offering a smooth and organized way to browse
+              through clothing that suits different occasions, moods, and
+              personalities. We believe style should feel effortless, and our
+              collection reflects that belief through carefully curated items.
             </p>
           </motion.div>
         </div>
