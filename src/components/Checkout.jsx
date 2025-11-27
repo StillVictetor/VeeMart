@@ -8,7 +8,7 @@ import PaymentInstructions from './PaymentInstructions'
 
 export default function CheckoutPage({ onClose, onAddToCart }) {
   const cart = useCart()
-
+  
   const [activeTab, setActiveTab] = useState('wishlist')
 
   const {
@@ -160,6 +160,8 @@ export default function CheckoutPage({ onClose, onAddToCart }) {
           e.preventDefault()
           const form = e.target
           const formData = new FormData(form)
+          // TODO: Payment flow is UI-only. Add server-side verification and
+          // server-calculated totals before using in production.
           const details = {
             fullName: formData.get('fullName') || '',
             email: formData.get('email') || '',

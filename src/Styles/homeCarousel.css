@@ -227,6 +227,10 @@
   padding: 0 30px;
 }
 
+
+
+/* RESPONSIVENESS */
+
 @media (max-width: 768px) {
   .content {
     grid-template-columns: 1fr;
@@ -234,7 +238,7 @@
     text-align: center;
   }
 
-  .textBox{
+  .textBox {
     order: 2;
     margin-top: -5rem;
   }
@@ -247,5 +251,4 @@
   .dots-container {
     left: 50%;
   }
-  
 }

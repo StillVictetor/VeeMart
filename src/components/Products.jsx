@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 import '../Styles/product.css'
 import { motion } from 'framer-motion'
-import cloth from '../assets/shoe1.png'
-import wears from '../assets/wears1.jfif'
-import wears2 from '../assets/PoloShirt.jfif'
-import wears3 from '../assets/PoloShirt.jfif'
 import { SearchIcon, BookmarkIcon, Star } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import ProductQuickView from './ProductQuickView'
 import Pagination from './Pagination'
 
-// cloths import here
+// IMAGES IMPORT HERE
 import cloth1 from '../assets/blackPolo.jfif'
 import cloth2 from '../assets/brownCloth.jfif'
 import cloth3 from '../assets/darkblackPolo.jfif'
@@ -20,11 +16,13 @@ import cloth5 from '../assets/wears1.jfif'
 import cloth6 from '../assets/grey trouser.jfif'
 import cloth7 from '../assets/PoloShirt.jfif'
 
+
+
 const Products = () => {
   const [quick, setQuick] = useState(null)
 
   const handleAddToCart = (product) => {
-    // placeholder - wire this to real cart logic
+    // TODO: Replace with cart.addItem and remove console.log
     console.log('Add to cart', product)
   }
   const { toggleWishlist, isWishlisted } = useCart()
@@ -503,11 +501,24 @@ const Products = () => {
                   onClick={() => setQuick(product)}
                 />
               </li>
+              {/* NOTE FOR COLLABORATOR: Passing the full `product` object via
+                  location.state. If the product page should support direct
+                  URLs, implement product lookup by id in `Details.jsx`. */}
               <Link
                 to={`/product/${product.id}`}
                 state={product}
                 className="button-two style-2"
                 data-text="View Details"
+                onClick={() => {
+                  try {
+                    sessionStorage.setItem(
+                      `product_${product.id}`,
+                      JSON.stringify(product)
+                    )
+                  } catch {
+                    /* ignore storage errors */
+                  }
+                }}
               >
                 View Details
               </Link>

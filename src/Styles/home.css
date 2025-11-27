@@ -43,7 +43,7 @@
   }
   100% {
     transform: translate(-50%, -50%);
-    letter-spacing: .5rem;
+    letter-spacing: 0.5rem;
     opacity: 1;
   }
 }
@@ -198,6 +198,10 @@
   font-size: 1rem;
 }
 
+
+
+/* RESPONSIVENESS */
+
 @media (max-width: 768px) {
   .about .about-grid {
     grid-template-columns: 1fr;
@@ -208,10 +212,10 @@
   }
 
   .home-banner img {
-  object-position: center;
-  opacity: 0.8;
-  width: 420px;
-  margin-top: -3rem;
+    object-position: center;
+    opacity: 0.8;
+    width: 420px;
+    margin-top: -3rem;
   }
 
   .about .about-pic {

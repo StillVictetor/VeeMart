@@ -215,6 +215,7 @@
   color: #fff;
 }
 
+/* RESPONSIVENESS */
 
 @media (max-width: 1200px) {
   .products-container {
@@ -234,21 +235,21 @@
   }
 
   .product-card {
-  width: 100px;
-  gap: 1rem;
+    width: 100px;
+    gap: 1rem;
   }
 
   .product-card .product-image {
-  width: 100%;
-  height: 280px;
-  border-radius: 5px;
+    width: 100%;
+    height: 280px;
+    border-radius: 5px;
   }
 
   .tab-nav {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: .5rem;
-  padding-bottom: 20px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-bottom: 20px;
   }
 }

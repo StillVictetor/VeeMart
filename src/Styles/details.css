@@ -1,3 +1,24 @@
+/*
+  details.css
+  -------------------------
+  Purpose: Styles for the product details page.
+
+  Sections in this file:
+  1) Layout & card styling
+  2) Media (images)
+  3) Info & actions
+  4) Responsive adjustments (bottom)
+
+  Breakpoints used in the project:
+    - Desktop: min-width 1025px
+    - Tablet: 769px - 1024px
+    - Mobile: max-width 768px
+
+  NOTES:
+    - Keep rules specific to the details page here. For shared utilities
+      (typography, colors, spacing), consider a central variables file.
+*/
+
 .details-page {
   display: flex;
   justify-content: center;
@@ -48,4 +69,26 @@
 .button-two.style-2 {
   background: #000;
   color: #fff;
+}
+
+/* Responsive adjustments for details page */
+@media (max-width: 1024px) {
+  .details-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  .details-media img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-page {
+    padding: 1rem;
+  }
+  .details-title {
+    font-size: 1.25rem;
+  }
 }

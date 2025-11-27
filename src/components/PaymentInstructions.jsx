@@ -10,6 +10,7 @@ export default function PaymentInstructions({
 }) {
   const [paymentCompleted, setPaymentCompleted] = useState(false)
 
+  // TODO: Replace placeholder bank details with secure config or backend fetch.
   const bank = {
     accountNumber: '9078119933',
     accountName: 'Victor Stephen',

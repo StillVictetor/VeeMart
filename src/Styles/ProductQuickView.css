@@ -201,6 +201,9 @@
   padding: 0 30px;
 }
 
+
+/* RESPONSIVENESS */
+
 @media (max-width: 720px) {
   .pqv-body {
     flex-direction: column;

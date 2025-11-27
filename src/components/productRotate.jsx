@@ -14,8 +14,6 @@ const ProductRotate = () => {
 
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.5])
 
-
-
   // Convert scroll progress to rotation degrees
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360])
 

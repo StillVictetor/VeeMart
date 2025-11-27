@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import '../Styles/productTabs.css'
 import { motion } from 'framer-motion'
+// NOTE FOR COLLABORATOR: `motion` used in JSX; some editors may flag
+// this import as unused due to parser issues. Restart editor or adjust
+// ESLint settings if needed.
 import { SearchIcon, BookmarkIcon, Star } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
@@ -149,6 +152,8 @@ export default function ProductTabs() {
   const { toggleWishlist, isWishlisted } = useCart()
 
   const handleAddToCart = (product) => {
+    // NOTE FOR COLLABORATOR: placeholder - wire to CartContext.addItem and
+    // remove debug log when implementing backend integration.
     console.log('Add to cart', product)
   }
 
@@ -234,11 +239,23 @@ export default function ProductTabs() {
                   onClick={() => setQuick(prod)}
                 />
               </li>
+              {/* NOTE FOR COLLABORATOR: Passing product via location.state; add
+                  a server-side lookup in `Details.jsx` to support direct URLs. */}
               <Link
                 to={`/product/${prod.id}`}
                 state={prod}
                 className="button-two style-2"
                 data-text="View Details"
+                onClick={() => {
+                  try {
+                    sessionStorage.setItem(
+                      `product_${prod.id}`,
+                      JSON.stringify(prod)
+                    )
+                  } catch {
+                    /* ignore storage errors */
+                  }
+                }}
               >
                 View Details
               </Link>

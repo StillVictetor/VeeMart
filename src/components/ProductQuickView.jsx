@@ -115,12 +115,23 @@ export default function ProductQuickView({ product, onClose, onAddToCart }) {
               viewport={{ once: false }}
               className="pqv-actions"
             >
+              {/* TODO: Passing product in location.state. Add fetch-by-id in Details for direct URLs. */}
               <Link
                 to={`/product/${product.id ?? ''}`}
                 state={product}
                 className="button-two style-2"
                 data-text="View Details"
-                onClick={onClose}
+                onClick={() => {
+                  try {
+                    sessionStorage.setItem(
+                      `product_${product.id}`,
+                      JSON.stringify(product)
+                    )
+                  } catch {
+                    /* ignore storage errors */
+                  }
+                  onClose()
+                }}
               >
                 View Details
               </Link>

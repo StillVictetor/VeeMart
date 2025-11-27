@@ -9,7 +9,19 @@ export default function Details() {
   const navigate = useNavigate()
   const cart = useCart()
 
-  const product = location.state || {}
+  // Try to read product from location.state first. If the user opened the
+  // details page via a direct URL (no state), attempt to load a cached copy
+  // from sessionStorage saved when the user clicked "View Details".
+  const stateProduct = location.state || null
+  let product = stateProduct || null
+  if ((!product || Object.keys(product).length === 0) && params.id) {
+    try {
+      const stored = sessionStorage.getItem(`product_${params.id}`)
+      if (stored) product = JSON.parse(stored)
+    } catch {
+      /* ignore session errors */
+    }
+  }
 
   // if there's no product in state, we still show the id from params
   if (!product || Object.keys(product).length === 0) {

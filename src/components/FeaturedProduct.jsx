@@ -133,7 +133,8 @@ const FeaturedProduct = () => {
     })
   }
   const handleAddToCart = (product) => {
-    // placeholder: wire this to your cart logic
+    // NOTE FOR COLLABORATOR: placeholder handler. Replace with CartContext
+    // usage (cart.addItem) or API call and remove console.log in prod.
     console.log('Add to cart', product)
   }
   const { toggleWishlist, isWishlisted } = useCart()
@@ -205,11 +206,25 @@ const FeaturedProduct = () => {
                       onClick={() => setQuick(item)}
                     />
                   </li>
+                  {/* Passing product via location.state.
+                      This works when navigating via app links but will be empty
+                      on direct URL access. Consider adding product lookup by
+                      id in `Details.jsx` for direct navigation support. */}
                   <Link
                     to={`/product/${item.id}`}
                     state={item}
                     className="button-two style-2"
                     data-text="View Details"
+                    onClick={() => {
+                      try {
+                        sessionStorage.setItem(
+                          `product_${item.id}`,
+                          JSON.stringify(item)
+                        )
+                      } catch {
+                        /* ignore storage errors */
+                      }
+                    }}
                   >
                     View Details
                   </Link>

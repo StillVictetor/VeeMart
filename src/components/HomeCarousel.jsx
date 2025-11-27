@@ -1,7 +1,7 @@
 import React, { useRef, useCallback, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import '../Styles/homeCarousel.css'
 import { Link } from 'react-router-dom'
+import '../Styles/homeCarousel.css'
 import imgM2 from '../assets/shoe1.png'
 import imgM3 from '../assets/bg.png'
 
@@ -95,11 +95,23 @@ export default function HomeCarousel() {
                 <div className="des">{img.description}</div>
                 <div className="title">Search Less. Live More</div>
                 <div className="name">{img.name}</div>
+                {/* NOTE FOR COLLABORATOR: Passing demo item through location.state.
+                    For direct URL access implement server-side product lookup. */}
                 <Link
                   to={`/product/${img.id}`}
                   state={img}
                   className="button-two style-2"
                   data-text="View Details"
+                  onClick={() => {
+                    try {
+                      sessionStorage.setItem(
+                        `product_${img.id}`,
+                        JSON.stringify(img)
+                      )
+                    } catch {
+                      /* ignore storage errors */
+                    }
+                  }}
                 >
                   View Details
                 </Link>

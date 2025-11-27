@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useMemo } from 'react'
 
+// TODO: Cart is in-memory only. Add persistence or backend sync as needed.
 const CartContext = createContext(null)
 
 export function useCart() {
